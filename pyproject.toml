@@ -1,0 +1,11 @@
+[project]
+name = "dcs-rankwidth"
+version = "0.1.0"
+description = "Exact amplitudes of doped Clifford circuits by T injection and linear rank-width contraction"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Kim Renaud"}]
+dependencies = ["numpy", "numba", "qiskit", "stim>=1.15"]
+
+[tool.setuptools]
+packages = ["dcs_rankwidth"]

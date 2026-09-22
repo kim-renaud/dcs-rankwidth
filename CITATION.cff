@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "dcs-rankwidth: exact amplitudes of doped Clifford circuits by T injection and linear rank-width contraction"
+authors:
+  - name: "Kim Renaud"
+    affiliation: "Calcul Québec"
+version: 0.1.0
+date-released: 2026-09-21
+license: Apache-2.0
+repository-code: "https://github.com/kim-renaud/dcs-rankwidth"
+keywords:
+  - quantum advantage
+  - classical simulation
+  - doped Clifford circuits
+  - rank-width
+references:
+  - type: article
+    authors:
+      - family-names: Kuyanov
+        given-names: Fedor
+      - family-names: Kissinger
+        given-names: Aleks
+    title: "Efficient classical simulation of low-rank-width quantum circuits using ZX-calculus"
+    identifiers:
+      - type: other
+        value: "arXiv:2603.06764"

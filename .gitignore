@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv*/
+
+# large inputs and outputs are not versioned (see README: Zenodo records)
+*.qasm
+*.pkl
+samples_*.txt
+amplitudes_*.jsonl
+amplitudes_*.txt
+control_*.jsonl
+*.out
+figures/

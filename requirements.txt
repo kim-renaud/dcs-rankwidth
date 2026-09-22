@@ -1,0 +1,6 @@
+numpy
+numba
+qiskit
+stim>=1.15
+matplotlib
+pytest
