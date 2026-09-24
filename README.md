@@ -21,6 +21,19 @@ by T-gate injection and linear rank-width contraction.
    2^36 complex64 entries per buffer, about 1.1 TB with two buffers, and 2^41.5 sparse updates per
    amplitude (about 3.5 min on 192 cores).
 
+## Scan orders
+
+| File | r_max | Plateau (sum of 2^(r - r_max)) | Time per amplitude (192 cores) |
+|---|---|---|---|
+| `data/scan_order_314t.npy` | 36 | 23.6 | about 200 s |
+| `data/scan_order_314t_optimized.npy` | 36 | 11.3 | about 100 s |
+
+`scan_order_314t.npy` produced the published probabilities. `scan_order_314t_optimized.npy` comes from
+an extended search (40 runs of about 10^6 orders each); no order below r_max = 36 was found, but the
+number of steps close to the maximum was halved. On the first five bitstrings of experiment 1, it
+reproduces the published probabilities within 5e-6 (complex64 precision) in half the time. Memory is
+unchanged (1 TiB with two buffers).
+
 ## Layout
 
 | Path | Content |
