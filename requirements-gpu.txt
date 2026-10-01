@@ -1,0 +1,2 @@
+# optional, for the GPU kernel (CUDA 12)
+cupy-cuda12x

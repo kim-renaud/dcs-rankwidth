@@ -108,3 +108,24 @@ def test_qiskit_bitstring_end_to_end(tmp_path):
         bitstring = format(int(idx), f"0{n}b")                   # Qiskit: qubit 0 rightmost
         p = abs(C.amplitude(to_ring(bitstring, ring, "qiskit") + [0] * (N - n), w=w)) ** 2
         assert abs(p - abs(sv[idx]) ** 2) / abs(sv[idx]) ** 2 < 1e-10
+
+
+@pytest.mark.parametrize("kind", ["vertex", "parity"])
+def test_slicing(kind, tmp_path):
+    from dcs_rankwidth.t_injection import graph_form
+    from dcs_rankwidth.slicing import SlicedScan, choose_slices
+    from dcs_rankwidth.parity_slicing import choose_parity_slices, build_parity_sliced
+    qc = ring_circuit(12, 12, 30, seed=2)
+    ops, ring, n, tab, N, natural, w = _prepare(qc, tmp_path)
+    edges, U = graph_form(tab, N)
+    if kind == "vertex":
+        Z = SlicedScan(tab, N, n, natural, choose_slices(N, edges, natural, 3, verbose=False))
+    else:
+        tr, _ = choose_parity_slices(N, edges, natural, 3, verbose=False)
+        Z = build_parity_sliced(tab, N, n, natural, tr)
+    Z.alloc(np.complex128)
+    sv = Statevector(qc).data
+    for t in range(3):
+        x = [int(b) for b in np.random.default_rng(t).integers(0, 2, n)]
+        xr = [x[q] for q in ring] + [0] * (N - n)
+        assert abs(abs(Z.amplitude(xr, w=w)) - abs(sv[sum(b << q for q, b in enumerate(x))])) < 1e-12

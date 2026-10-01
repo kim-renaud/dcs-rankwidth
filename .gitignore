@@ -14,3 +14,5 @@ amplitudes_*.txt
 control_*.jsonl
 *.out
 figures/
+gpu_partial_*.jsonl
+parity_slice_check.jsonl

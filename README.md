@@ -110,6 +110,10 @@ The 75-T comparison is reproduced by `slurm/validation_75t.sh`, after converting
 
 Python 3.11, numba 0.65.1, numpy 1.26.4, qiskit 2.3.1, stim 1.16.0.
 
+## GPU
+
+Parity slicing and the CUDA kernel are described in [GPU.md](GPU.md).
+
 ## License
 
 Copyright 2026 Kim Renaud, Calcul Québec.
