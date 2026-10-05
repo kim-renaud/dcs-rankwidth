@@ -6,6 +6,8 @@ Exact classical amplitudes for the doped Clifford sampling (DCS) circuit of
 [arXiv:2607.25941v3](https://arxiv.org/abs/2607.25941) (IBM, 64 qubits, depth 73, 314 T gates),
 by T-gate injection and linear rank-width contraction.
 
+On one node with four H100 GPUs, one probability is computed in 10.6 s (measurement conditions in [GPU.md](GPU.md)).
+
 ## Method
 
 1. **T injection.** Each diagonal rotation diag(1, e^{iθ}) on qubit q is replaced by a reference
